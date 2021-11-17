@@ -1,18 +1,22 @@
 <div class="employees-list">
+  <label for="search" class="col-sm-2 col-form-label" style="text-align: right;">Search</label>
+  <div class="col-sm-6">
+    <input type="text" [(ngModel)]="searchValue" class="form-control" id="search" />
+  </div>
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Lp.</th>
-        <th>Name</th>
-        <th>Last name</th>
+        <th>Id&nbsp;<fa-icon [icon]="faSort"></fa-icon></th>
+        <th>Name&nbsp;<fa-icon [icon]="faSort"></fa-icon></th>
+        <th>Last name&nbsp;<fa-icon [icon]="faSort"></fa-icon></th>
         <th>Position</th>
         <th>Salary</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr *ngFor="let employee of employeeObj; let i = index" class="employee-list-item">
-        <td>{{i+1}}</td>
+      <tr *ngFor="let employee of employeeObj" class="employee-list-item">
+        <td>{{employee.id}}</td>
         <td> {{employee.name}}</td>
         <td> {{employee.last_name}}</td>
         <td> {{employee.position}}</td>
@@ -23,41 +27,3 @@
   </table>
 </div>
 
-<!-- <div class="employees-list">
-    <div class="employees-list-header">
-        <p class="title-column">
-            Lp.
-        </p>
-        <p class="title-column">
-            Name
-        </p>
-        <p class="title-column">
-            Last name
-        </p>
-        <p class="title-column">
-            Position
-        </p>
-        <p class="title-column">
-            Salary
-        </p>
-
-    </div>
-
-    <div *ngFor="let employee of employeeObj; let i = index" class="employee-list-item">
-        <p>
-            {{i+1}}
-          </p>
-          <p>
-            {{employee.name}}
-          </p>
-          <p>
-            {{employee.last_name}}
-          </p>
-          <p>
-            {{employee.position}}
-          </p>
-          <p>
-            {{employee.salary}}
-          </p>
-    </div>
-</div> -->

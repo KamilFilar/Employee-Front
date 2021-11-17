@@ -19,6 +19,10 @@ import { FooterComponent } from './modules/components/footer/footer.component';
 import { AlertComponent } from './modules/modals/alert/alert.component';
 import { EmployeesListComponent } from './modules/components/employees-list/employees-list.component';
 import { EmployeeDetailsComponent } from './modules/components/employee-details/employee-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { EmployeeDetailsComponent } from './modules/components/employee-details/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [
     ConfigService

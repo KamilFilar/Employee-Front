@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/config/services/config.service';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { ConfigService } from 'src/app/config/services/config.service';
 })
 export class EmployeesListComponent implements OnInit {
   employeeObj: any;
+  searchValue: any;
+  faSort = faSort;
 
   constructor(
     private configService: ConfigService,
@@ -25,6 +28,7 @@ export class EmployeesListComponent implements OnInit {
       }
     ); 
   }
+
 
 
   ngOnInit(): void {
