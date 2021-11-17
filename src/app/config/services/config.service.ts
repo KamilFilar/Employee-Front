@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../interfaces/employee';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,24 @@ export class ConfigService {
   constructor(
     private htpp: HttpClient
   ) { }
+
+  form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
+    name: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    position: new FormControl('', Validators.required),
+    salary: new FormControl('', Validators.required)
+  });
+
+  initializeFormGroup() {
+    this.form.setValue({
+      $key: null,
+      name: '',
+      lastName: '',
+      position: '',
+      salary: ''
+    })
+  }
 
   getEmployeeList() 
   {

@@ -14,7 +14,7 @@ export class EmployeesListComponent implements OnInit {
   faSort = faSort;
 
   constructor(
-    private configService: ConfigService,
+    public configService: ConfigService,
   ) {
 
 
@@ -36,5 +36,9 @@ export class EmployeesListComponent implements OnInit {
 
   }
 
+  onClear() {
+    this.configService.form.reset();
+    this.configService.initializeFormGroup();
+  }
 
 }
