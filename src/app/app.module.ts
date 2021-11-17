@@ -17,6 +17,8 @@ import { FooterComponent } from './modules/components/footer/footer.component';
 
 // Import modals
 import { AlertComponent } from './modules/modals/alert/alert.component';
+import { EmployeesListComponent } from './modules/components/employees-list/employees-list.component';
+import { EmployeeDetailsComponent } from './modules/components/employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AlertComponent } from './modules/modals/alert/alert.component';
     HomeComponent,
     AlertComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EmployeesListComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import { Employee } from '../interfaces/employee';
 
 export class ConfigService {
   
-  private baseUrl = 'http://localhost/api/employee';
+  private baseUrl = 'http://localhost:8000/api/employee';
   private headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
