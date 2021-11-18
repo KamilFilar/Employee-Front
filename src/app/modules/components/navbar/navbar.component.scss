@@ -11,28 +11,4 @@
     padding: 1.2em;
   }
 
-  .menu{
-    display: inline-flex;
-    flex-wrap: nowrap;
-    justify-content: center;    
-  }
-
-  .menu-btn{
-    background-color:rgb(181, 199, 207);
-    color: rgb(0, 112, 144);
-    margin-left: 1em; 
-    border: 2px solid black;
-    padding: 0.3em;
-    cursor: pointer;
-    font-size: 1.5em;
-    
-  }
-
-  .menu-btn:hover{
-    background-color: rgb(235, 235, 235);    
-  }
-  
-  a{
-    text-decoration: none;
-    color: black;
-  }
+ 

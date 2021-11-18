@@ -20,6 +20,7 @@ export class ConfigService {
 
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
+    id: new FormControl(null),
     name: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     position: new FormControl('', Validators.required),
@@ -29,11 +30,16 @@ export class ConfigService {
   initializeFormGroup() {
     this.form.setValue({
       $key: null,
+      id: null,
       name: '',
       lastName: '',
       position: '',
       salary: ''
     })
+  }
+
+  populateForm(Employee: any) {
+    this.form.patchValue(Employee);
   }
 
   getEmployeeList() 

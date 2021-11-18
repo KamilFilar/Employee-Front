@@ -26,6 +26,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddEmployeeComponent } from './modules/components/add-employee/add-employee.component';
+import { EditEmployeeComponent } from './modules/components/edit-employee/edit-employee.component';
 
 
 
@@ -38,7 +39,8 @@ import { AddEmployeeComponent } from './modules/components/add-employee/add-empl
     FooterComponent,
     EmployeesListComponent,
     EmployeeDetailsComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { AddEmployeeComponent } from './modules/components/add-employee/add-empl
   providers: [
     ConfigService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddEmployeeComponent]
 })
 export class AppModule { }
