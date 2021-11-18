@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Employee } from '../interfaces/employee';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
@@ -57,7 +56,7 @@ export class ConfigService {
       salary: salary
     }
 
-    return this.htpp.post<Employee>(this.baseUrl, JSON.stringify(newEmployee), { headers: this.headers }).subscribe({
+    return this.htpp.post<any>(this.baseUrl, JSON.stringify(newEmployee), { headers: this.headers }).subscribe({
       next: data => {
         console.log(data);
       },

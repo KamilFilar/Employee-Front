@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/config/services/config.service';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -13,6 +14,9 @@ export class EmployeesListComponent implements OnInit {
   searchValue: any;
   faSort = faSort;
 
+  listData: MatTableDataSource<any>;
+  displayedColumns: string[] = ['name','lastName','position','salary','actions'];
+
   constructor(
     public configService: ConfigService,
   ) {
@@ -24,21 +28,28 @@ export class EmployeesListComponent implements OnInit {
     this.configService.getEmployeeList().then(
       (res) => {
         this.employeeObj = res
+        this.listData = new MatTableDataSource(this.employeeObj);
         console.log(this.employeeObj)
       }
-    ); 
+    );
+    // this.listData = new MatTableDataSource(this.employeeObj); 
   }
 
 
 
   ngOnInit(): void {
-    this.getEmployeeList();
-
+     this.getEmployeeList();
+    // this.configService.getEmployeeList().then(
+    //   (res) => {
+    //     this.employeeObj = res
+    //     this.listData = new MatTableDataSource(this.employeeObj); 
+    //     console.log(this.employeeObj)
+    //   }
+      
+    // );
+    
   }
 
-  onClear() {
-    this.configService.form.reset();
-    this.configService.initializeFormGroup();
-  }
+
 
 }

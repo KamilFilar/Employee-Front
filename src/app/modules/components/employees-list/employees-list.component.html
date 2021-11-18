@@ -1,37 +1,44 @@
-<form [formGroup]="configService.form" class="normal-form"> 
-  <mat-grid-list cols="2" rowHeight="300px">
-    <mat-grid-tile>
-      <div class="controles-container">
-        <input type="hidden" formControlName="$key">
-        <mat-form-field>
-          <input formControlName="name" matInput placeholder="Name">
-          <mat-error>This field is required.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input formControlName="lastName" matInput placeholder="Last name">
-          <mat-error>This field is required.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input formControlName="position" matInput placeholder="Position">
-          <mat-error>This field is required.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input formControlName="salary" matInput placeholder="Salary">
-          <mat-error>This field is required.</mat-error>
-        </mat-form-field>
-        <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" [disabled]="configService.form.invalid">Submit</button>
-          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-        </div>
-      </div>
-    </mat-grid-tile>
-    <!-- <mat-grid-tile>
-      <div class="controles-container">
-        <div class="add-bottom-padding"></div>
-      </div>
-    </mat-grid-tile> -->
-  </mat-grid-list>
-</form>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.last_name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.position}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="salary">
+      <mat-header-cell *matHeaderCellDef>Salary</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.salary}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        No data.
+      </mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+  </mat-table>
+</div>
 <!-- <div class="employees-list">
   
   <table class="table table-bordered">

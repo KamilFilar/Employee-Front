@@ -25,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddEmployeeComponent } from './modules/components/add-employee/add-employee.component';
 
 
 
@@ -36,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     EmployeesListComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
