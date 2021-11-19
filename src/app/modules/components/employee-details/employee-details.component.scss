@@ -1,0 +1,38 @@
+.employee-details{
+    width: 70%;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.employee-board{
+    margin: auto;
+ }
+
+ .employee-info{
+    background-color: rgb(163, 186, 195);
+    width: 70%;
+    margin: auto;
+    border: 3px solid  rgb(234, 235, 237);
+    padding: 0.5em;
+    text-indent: 1em;
+  }
+.employee-details-title{
+    text-align: center;
+    color: rgb(0, 112, 144);
+    font-size: 1.7em;
+    font-weight: bold;
+    cursor: default;
+}
+
+.employee{
+    color: white;
+    cursor: default;
+    font-size: 1.4em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.contrete-info{
+    color: black;
+    font-weight: 600;
+}

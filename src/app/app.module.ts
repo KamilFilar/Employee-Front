@@ -17,6 +17,18 @@ import { FooterComponent } from './modules/components/footer/footer.component';
 
 // Import modals
 import { AlertComponent } from './modules/modals/alert/alert.component';
+import { EmployeesListComponent } from './modules/components/employees-list/employees-list.component';
+import { EmployeeDetailsComponent } from './modules/components/employee-details/employee-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddEmployeeComponent } from './modules/components/add-employee/add-employee.component';
+import { EditEmployeeComponent } from './modules/components/edit-employee/edit-employee.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,16 +36,27 @@ import { AlertComponent } from './modules/modals/alert/alert.component';
     HomeComponent,
     AlertComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EmployeesListComponent,
+    EmployeeDetailsComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule,
+    FontAwesomeModule,
+    NoopAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     ConfigService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddEmployeeComponent]
 })
 export class AppModule { }
