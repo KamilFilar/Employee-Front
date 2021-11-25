@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { ConfigService } from 'src/app/config/services/config.service';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,7 +15,7 @@ import { NotificationService } from 'src/app/config/services/notification.servic
   templateUrl: './employees-list.component.html',
   styleUrls: ['./employees-list.component.scss']
 })
-export class EmployeesListComponent implements OnInit {
+export class EmployeesListComponent implements OnInit, OnChanges {
   employeeObj: any;
   searchValue: any;
   faSort = faSort;
@@ -33,6 +33,9 @@ export class EmployeesListComponent implements OnInit {
     private changeDetectorRefs: ChangeDetectorRef,
   ) {
 
+  }
+  ngOnChanges(): void {
+    this.refresh();
   }
 
   getEmployeeList() {
@@ -77,7 +80,16 @@ export class EmployeesListComponent implements OnInit {
 
   onDelete(id: Number) {
     if(confirm('Are you sure to delete this employee?')){
-    this.configService.removeEmployee(id);
+    this.configService.removeEmployee(id).then(
+      (res) => {
+        console.log(res);
+        this.refresh();
+      }
+    ).catch(
+      (error) => {
+        console.log(error)
+      }
+    )
     this.notificationService.warn('! Deleted succesfully');
     console.log("employee with id "+id+" deleted")
     }
@@ -86,6 +98,7 @@ export class EmployeesListComponent implements OnInit {
   refresh() {
     this.configService.getEmployeeList().then(
       (res) => {
+        console.log("xd")
         this.employeeObj = res
         this.changeDetectorRefs.detectChanges();
         console.log(this.employeeObj)
@@ -95,7 +108,6 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployeeList();
-    this.refresh();
   }
 
 
