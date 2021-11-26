@@ -1,6 +1,6 @@
 export interface Employee {
     name: String,
-    lastName: String,
+    last_name: String,
     position: String,
     salary: Number
 }

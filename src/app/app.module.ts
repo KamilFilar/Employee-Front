@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 // Imports for API
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './config/services/config.service';
+import { DataSharingService } from './config/services/data-sharing.service';
 
 // Import views
 import { HomeComponent } from './modules/views/home/home.component';
@@ -54,7 +55,8 @@ import { EditEmployeeComponent } from './modules/components/edit-employee/edit-e
     ReactiveFormsModule
   ],
   providers: [
-    ConfigService
+    ConfigService,
+    DataSharingService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddEmployeeComponent]

@@ -22,7 +22,7 @@ export class ConfigService {
     $key: new FormControl(null),
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    last_name: new FormControl('', Validators.required),
     position: new FormControl('', Validators.required),
     salary: new FormControl('', Validators.required)
   });
@@ -32,7 +32,7 @@ export class ConfigService {
       $key: null,
       id: null,
       name: '',
-      lastName: '',
+      last_name: '',
       position: '',
       salary: ''
     })

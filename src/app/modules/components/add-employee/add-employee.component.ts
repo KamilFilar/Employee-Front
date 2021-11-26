@@ -28,15 +28,13 @@ export class AddEmployeeComponent implements OnInit {
   onSubmit() {
     if (this.configService.form.valid) {
       let employeeForm = this.configService.form.value;
-      this.configService.addNewEmployee(employeeForm.name, employeeForm.lastName, employeeForm.position, employeeForm.salary);
+      this.configService.addNewEmployee(employeeForm.name, employeeForm.last_name, employeeForm.position, employeeForm.salary);
       this.configService.form.reset();
       this.configService.initializeFormGroup();
-      this.notificationService.success(':: Submitted succesfully');
+      this.notificationService.success(':: Submitted succesfully');    
       this.onClose();
-      console.log(employeeForm.name);
-      console.log(employeeForm.lastName);
-      console.log(employeeForm.position);
-      console.log(employeeForm.salary);
+
+
     }
   }
 
