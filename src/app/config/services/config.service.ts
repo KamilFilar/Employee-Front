@@ -21,10 +21,10 @@ export class ConfigService {
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
     id: new FormControl(null),
-    name: new FormControl('', Validators.required),
-    last_name: new FormControl('', Validators.required),
-    position: new FormControl('', Validators.required),
-    salary: new FormControl('', Validators.required)
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    last_name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    position: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+    salary: new FormControl('', [Validators.required])
   });
 
   initializeFormGroup() {

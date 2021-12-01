@@ -43,7 +43,6 @@ export class EditEmployeeComponent implements OnInit {
     this.configService.getEmployeeList().then(
       (res) => {
         this.employeeObj = res
-        console.log(1, this.employeeObj)
         this.listData = new MatTableDataSource(this.employeeObj);
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;

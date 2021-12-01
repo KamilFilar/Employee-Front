@@ -1,6 +1,6 @@
 <mat-toolbar>
-  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>close</mat-icon></button>
   <span>New Employee </span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>close</mat-icon></button>
 </mat-toolbar>
 <form [formGroup]="configService.form" class="normal-form"> 
     <mat-grid-list cols="2" rowHeight="300px">
@@ -9,19 +9,19 @@
           <input type="hidden" formControlName="$key">
           <mat-form-field>
             <input formControlName="name" matInput placeholder="Name">
-            <mat-error>This field is required.</mat-error>
+            <mat-error>Name is required and must be between 3 and 30 characters.</mat-error>
           </mat-form-field>
           <mat-form-field>
             <input formControlName="last_name" matInput placeholder="Last name">
-            <mat-error>This field is required.</mat-error>
+            <mat-error>Last name is required and must be between 3 and 30 characters.</mat-error>
           </mat-form-field>
           <mat-form-field>
             <input formControlName="position" matInput placeholder="Position">
-            <mat-error>This field is required.</mat-error>
+            <mat-error>Position is required and must be between 3 and 30 characters.</mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="salary" matInput placeholder="Salary">
-            <mat-error>This field is required.</mat-error>
+            <input formControlName="salary" matInput placeholder="Salary" type="number">
+            <mat-error>Salary is required and must be numeric.</mat-error>
           </mat-form-field>
           <div class="button-row">
             <button mat-raised-button color="primary" type="submit" [disabled]="configService.form.invalid" (click)="onSubmit()">Submit</button>
