@@ -1,7 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from 'src/app/config/services/config.service';
-import { DataSharingService } from 'src/app/config/services/data-sharing.service';
-
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -35,11 +33,10 @@ export class EmployeesListComponent implements OnInit {
 
   constructor(
     private configService: ConfigService,
-    private dataService: DataSharingService,
     private dialog: MatDialog,
     private notificationService: NotificationService,
   ) {
-    this.dataService.currentMessage.subscribe(message => this.message = message);
+    
   }
   
 
@@ -113,17 +110,10 @@ export class EmployeesListComponent implements OnInit {
     }
   }
 
-  // refresh() {
-  //   this.configService.getEmployeeList().then(
-  //     (res) => {
-  //     this.employeeObj = res;
-  //     this.listData = new MatTableDataSource(this.employeeObj);
-  //   })
-  // }
 
   ngOnInit(): void {
     this.getEmployeeList();
-    this.dataService.currentMessage.subscribe(message => this.message = message);
+    //this.dataService.currentMessage.subscribe(message => this.message = message);
     
     
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfigService } from 'src/app/config/services/config.service';
-import { DataSharingService } from 'src/app/config/services/data-sharing.service';
 
 import { NotificationService } from 'src/app/config/services/notification.service';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -30,7 +29,6 @@ export class EditEmployeeComponent implements OnInit {
 
   constructor(
     public configService: ConfigService,
-    private dataService: DataSharingService,
     public notificationService: NotificationService,
     public dialogRef: MatDialogRef<EditEmployeeComponent>,
   ) { }
@@ -72,12 +70,10 @@ export class EditEmployeeComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  newMessage() {
-    this.dataService.changeMessage("Refresh")
-  }
+
   
   ngOnInit(): void {
-    this.dataService.currentMessage.subscribe(message => this.message = message);
+    
   }
   
 }
