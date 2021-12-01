@@ -28,8 +28,6 @@ export class EmployeesListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  // TEST
-  message: string;
 
   constructor(
     private configService: ConfigService,
@@ -46,6 +44,12 @@ export class EmployeesListComponent implements OnInit {
       (res) => {
         this.employeeObj = res
         this.listData = new MatTableDataSource(this.employeeObj);
+        this.listData.sortingDataAccessor = (item, property) => {
+          switch(property) {
+            case 'lastName': return item.last_name;
+            default: return item[property];
+          }
+        };
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
         this.employeeObj = [...this.employeeObj]

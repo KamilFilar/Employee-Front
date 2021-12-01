@@ -10,14 +10,14 @@ import { ConfigService } from './config/services/config.service';
 
 
 // Import views
-import { HomeComponent } from './modules/views/home/home.component';
+
 
 // Imports components
 import { NavbarComponent } from './modules/components/navbar/navbar.component';
 
 
 // Import modals
-import { AlertComponent } from './modules/modals/alert/alert.component';
+
 import { EmployeesListComponent } from './modules/components/employees-list/employees-list.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,8 +34,6 @@ import { EditEmployeeComponent } from './modules/components/edit-employee/edit-e
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AlertComponent,
     NavbarComponent,
     EmployeesListComponent,
     AddEmployeeComponent,
